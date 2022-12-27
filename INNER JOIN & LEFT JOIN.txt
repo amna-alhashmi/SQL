@@ -1,0 +1,11 @@
+select * from department inner join Employees on department.dep_id = Employees.dep_id;
+14:46:40	select * from department inner join Employees on department.dep_id = Employees.dep_id LIMIT 0, 1000	14 row(s) returned	0.000 sec / 0.000 sec
+
+select * from department left join Employees on department.dep_id = Employees.dep_id;
+14:47:37	select * from department left join Employees on department.dep_id = Employees.dep_id LIMIT 0, 1000	15 row(s) returned	0.000 sec / 0.000 sec
+
+select * from department left join Employees on department.dep_id = Employees.dep_id where Employees.emp_id=63679;
+14:49:34	select * from department left join Employees on department.dep_id = Employees.dep_id where Employees.emp_id=63679 LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+
+select * from department left join Employees on department.dep_id = Employees.dep_id where Employees.emp_id=65271;
+14:50:56	select * from department left join Employees on department.dep_id = Employees.dep_id where Employees.emp_id=65271 LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec

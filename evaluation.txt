@@ -1,0 +1,266 @@
+1* Return complete information about the employees.
+select * from Employees;
+11:27:23	select * from Employees LIMIT 0, 1000	14 row(s) returned	0.000 sec / 0.000 sec
+
+2* Write a SQL query to find the salaries of all employees. Return salary.
+select salary from Employees;
+11:44:15	select salary from Employees LIMIT 0, 1000	14 row(s) returned	0.000 sec / 0.000 sec
+
+3* Write a SQL query to find the unique designations of the employees. Return job name
+select distinct jop_name from Employees;
+11:52:45	select distinct jop_name from Employees LIMIT 0, 1000	5 row(s) returned	0.000 sec / 0.000 sec
+
+4* Write a SQL query to list the employees’ name, increased their salary by 15%
+SELECT emp_name ,salary+(salary*15/100) FROM employees;
+12:12:19	SELECT emp_name ,salary+(salary*15/100) FROM employees LIMIT 0, 1000	14 row(s) returned	0.000 sec / 0.000 sec
+
+5* Write a SQL query to list the employee's name and job name as a format of "Employee & Job"
+select concat(emp_name,' ',jop_name) as 'Employees&Job' from Employees;
+12:23:47	select concat(emp_name,' ',jop_name) as 'Employees&Job' from Employees LIMIT 0, 1000	14 row(s) returned	0.000 sec / 0.000 sec
+
+6* Write a SQL query to find those employees with hire date in the format like February 22, 1991. Return employee ID, employee name, salary, hire date.
+SELECT emp_id,emp_name,salary,hire_data FROM Employees where hire_data <'1991-04-02';
+13:49:35	SELECT emp_id, emp_name,  salary, hire_data  FROM Employees  where hire_data <'1991-04-02' LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+
+7* Write a SQL query to count the number of employees who have total income more than 2200
+select count(*) from Employees where salary >'2200';
+14:14:17	select count(*) from Employees where salary >'2200' LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+
+8*  Write a SQL query to find the unique jobs with their corresponding department id.
+select distinct jop_name,dep_id from Employees;
+14:28:08	select distinct jop_name,dep_id from Employees LIMIT 0, 1000	9 row(s) returned	0.000 sec / 0.000 sec
+
+9*  Write a SQL query to find those employees who do not belong to the department 2001. Return complete information about the employees.
+SELECT *FROM employees WHERE dep_id NOT IN (2001);
+14:31:23	SELECT *FROM employees WHERE dep_id NOT IN (2001) LIMIT 0, 1000	9 row(s) returned	0.000 sec / 0.000 sec
+
+10*  Write a SQL query to find those employees who joined before 1991. Return complete information about the employees
+select * from employees where hire_data <('1991-1-1');
+14:37:06	select * from employees where hire_data <('1991-1-1') LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+
+11*  Write a SQL query to calculate the average salary of employees who work as analysts. Return average salary.
+select avg(salary)from Employees where jop_name = 'ANALYST';
+14:49:42	select avg(salary)from Employees where jop_name = 'ANALYST' LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+
+12*  Write a SQL query to find the details of the employees who's name start start with B or end with E
+select * from Employees where emp_name like 'B%'or emp_name like '%E';
+15:00:38	select * from Employees where emp_name like 'B%'or emp_name like '%E' LIMIT 0, 1000	4 row(s) returned	0.000 sec / 0.000 sec
+
+13*  Write a SQL query to find the details of the employees who's department name start start with B or end with E
+select * from department where dep_name like 'B%'or dep_name like '%E';
+15:37:25	select * from department where dep_name like 'B%'or dep_name like '%E' LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+
+14*  Write a SQL query to find the details of the employees who's department location start start with F or end with N
+select * from department where dep_location like 'F%'or dep_location like '%N';
+15:40:27	select * from department where dep_location like 'F%'or dep_location like '%N' LIMIT 0, 1000	0 row(s) returned	0.000 sec / 0.000 sec
+
+15*  Write a SQL query to identify employees whose commissions exceed their salaries. Return complete information about the employees, department location and department name
+SELECT * FROM Employees where commission > salary;
+15:49:02	SELECT * FROM Employees where commission > salary LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+
+16* Write a SQL query to identify those employees whose salaries exceed 3000 after receiving a 25% salary increase
+ SELECT *FROM employees WHERE (1.25*salary) > 3000;
+15:51:06	SELECT * FROM Employees where commission > salary LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+
+17* Write a SQL query to find out which employees joined in the month of January. Return complete information about the employees.
+select * from employees where hire_data=January;
+
+
+18*  Write a SQL query to separate the names of employees and their managers by the string 'works for'.
+SELECT e.emp_name || ' works for ' || m.emp_name FROM employees e, employees m WHERE e.manager_id = m.emp_id;
+16:07:32	SELECT e.emp_name || ' works for ' || m.emp_name FROM employees e,      employees m WHERE e.manager_id = m.emp_id LIMIT 0, 1000	13 row(s) returned	0.000 sec / 0.000 sec
+
+19*  Write a SQL query to find those employees whose designation is ‘CLERK’. Return complete information about the employees.
+SELECT * FROM Employees where jop_name='CLERK';
+16:16:02	SELECT * FROM Employees where jop_name='CLERK' LIMIT 0, 1000	4 row(s) returned	0.000 sec / 0.000 sec
+
+20*  Write a SQL query to identify employees with more than 27 years of experience. Return complete information about the employees.
+
+
+21* Write a SQL query to find those employees whose salaries are less than 3500. Return complete information about the employees.
+SELECT *FROM employees WHERE salary <3500;
+10:04:40	SELECT * FROM employees WHERE salary <3500 LIMIT 0, 1000	13 row(s) returned	0.015 sec / 0.000 sec
+
+22* Write a SQL query to find the employee whose designation is ‘ANALYST’. Return employee name, job name and salary.
+SELECT emp_name,job_name,salary FROM employees WHERE job_name = 'ANALYST';
+10:18:25	SELECT emp_name,        jop_name,        salary FROM employees WHERE jop_name = 'ANALYST' LIMIT 0, 1000	2 row(s) returned	0.000 sec / 0.000 sec
+
+23*  Write a SQL query to identify those employees who joined the company in 1991. Return complete information about the employees.
+SELECT * FROM employees WHERE to_char(hire_date,'YYYY') = '1991';
+
+24*  Write a SQL query to identify those employees who joined the company after 1991. Return complete information about the employees.
+
+
+25*  Write a SQL query to find those employees who joined before 1st April 1991. Return employee ID, employee name, hire date and salary.
+SELECT emp_name, hire_data,salary FROM employees WHERE hire_data <'1991-04-01';
+10:20:12	SELECT emp_name,        hire_data,        salary FROM employees  WHERE hire_data <'1991-04-01' LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+
+26*  Write a SQL query identify the employees who do not report to a manager. Return employee name, job name.
+SELECT emp_name,jop_name FROM employees WHERE manager_id IS NULL;
+10:23:26	SELECT emp_name,jop_name FROM employees WHERE manager_id IS NULL LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+
+27* Write a SQL query to find the employees who joined on the 1st of May 1991. Return complete information about the employees.
+
+
+28*  Write a SQL query to identify the experience of the employees who work under the manager whose ID number is 68319. Return employee ID, employee name, salary, experience
+SELECT emp_id,emp_name,salary, age(CURRENT_DATE, hire_date) "Experience" FROM employees WHERE manager_id=68319;
+
+29*  Write a SQL query to find out which employees earn more than 100 per day as a salary. Return employee ID, employee name, salary, and experience.
+SELECT emp_id, emp_name,salary FROM employees WHERE (salary/30)>100;
+10:29:04	SELECT emp_id,        emp_name,        salary FROM employees WHERE (salary/30)>100 LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+
+30* Write a SQL query to identify those employees who retired after 31-Dec-99, completing eight years of service. Return employee name.
+SELECT emp_name
+FROM employees
+WHERE hire_date + interval '96 months' > '1999-12-31';
+
+31* Write a SQL query to identify the employees whose salaries are odd. Return complete information about the employee
+SELECT *FROM employees WHERE mod(salary,2) = 1;
+10:33:52	SELECT * FROM employees WHERE mod(salary,2) = 1 LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+
+32* Write a SQL query to identify employees whose salaries contain only three digits. Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE length(TRIM(TO_CHAR(salary,'9999'))) = 3;
+
+33*  Write a SQL query to find those employees who joined in the month of APRIL. Return complete information about the employees
+SELECT *
+FROM employees
+WHERE length(TRIM(TO_CHAR(salary,'9999'))) = 3;
+
+34*  Write a SQL query to find out which employees joined the company before the 19th of the month. Return complete information about the employees
+SELECT *
+FROM employees
+WHERE to_char(hire_date,'DD') < '19';
+
+35* Write a SQL query to identify those employees who have been working as a SALESMAN and month portion of the experience is more than 10. Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE job_name = 'SALESMAN'
+  AND EXTRACT(MONTH
+              FROM age(CURRENT_DATE, hire_date)) > 10;
+
+36* Write a SQL query to find those employees of department id 3001 or 1001 and joined in the year 1991. Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE to_char(hire_date,'YYYY') = '1991'
+  AND (dep_id =3001
+       OR dep_id =1001) ;
+
+37* Write a SQL query to find the employees who are working for the department ID 1001 or 2001. Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE dep_id=1001
+  OR dep_id=2001;
+10:42:25	SELECT * FROM employees WHERE dep_id=1001   OR dep_id=2001 LIMIT 0, 1000	8 row(s) returned	0.000 sec / 0.000 sec
+
+38* Write a SQL query to find those employees whose designation is ‘CLERK’ and work in the department ID 2001. Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE jop_name ='CLERK'
+  AND dep_id = 2001;
+10:43:44	SELECT * FROM employees WHERE jop_name ='CLERK'   AND dep_id = 2001 LIMIT 0, 1000	2 row(s) returned	0.000 sec / 0.000 sec
+
+39* Write a SQL query to find those employees who are either CLERK or MANAGER. Return complete information about the employees.
+  SELECT *
+FROM employees
+WHERE jop_name IN ('CLERK','MANAGER');
+10:44:48	SELECT * FROM employees WHERE jop_name IN ('CLERK','MANAGER') LIMIT 0, 1000	7 row(s) returned	0.016 sec / 0.000 sec
+
+40* Write a SQL query to identify those employees who joined in any month other than February. Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE to_char(hire_date,'MON') NOT IN ('FEB');
+
+41* Write a SQL query to identify the employees who joined the company in June 1991. Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE hire_data BETWEEN '1991-06-01' AND '1991-06-30';
+10:46:37	SELECT * FROM employees WHERE hire_data BETWEEN '1991-06-01' AND '1991-06-30' LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
+
+42* Write a SQL query to search for all employees with an annual salary between 24000 and 50000 (Begin and end values are included.). Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE 12*salary BETWEEN 24000 AND 50000;
+10:47:48	SELECT * FROM employees WHERE 12*salary BETWEEN 24000 AND 50000 LIMIT 0, 1000	5 row(s) returned	0.000 sec / 0.000 sec
+
+ 43* Write a SQL query to identify all employees who joined the company on 1st May, 20th February, and 3rd December 1991. Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE to_char(hire_date,'DD-MON-YY') IN ('01-MAY-91',
+                                         '20-FEB-91',
+                                         '03-DEC-91');
+
+44* Write a SQL query to find out which employees are working under the managers 63679, 68319, 66564, or 69000. Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE manager_id IN (63679,
+                     68319,
+                     66564,
+                     69000);
+10:50:12	SELECT * FROM employees WHERE manager_id IN (63679,                      68319,                      66564,                      69000) LIMIT 0, 1000	3 row(s) returned	0.000 sec / 0.000 sec
+
+45* Write a SQL query to find those employees who joined in 90's. Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE to_char(hire_date,'YY') BETWEEN '90' AND '99';
+
+46* Write a SQL query to find those managers who are in the department 1001 or 2001. Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE job_name = 'MANAGER'
+  AND (dep_id = 1001
+       OR dep_id =2001);
+10:52:36	SELECT * FROM employees WHERE jop_name = 'MANAGER'   AND (dep_id = 1001        OR dep_id =2001) LIMIT 0, 1000	2 row(s) returned	0.000 sec / 0.000 sec
+
+47*  Write a SQL query to identify employees who joined in the month of FEBRUARY with a salary range of 1001 to 2000 (Begin and end values are included.). Return complete information about the employees.
+SELECT *
+FROM employees
+WHERE to_char(hire_date,'MON') = 'FEB'
+  AND salary BETWEEN 1000 AND 2000;
+
+48*  Write a SQL query to find those employees who joined before or after the year 1991. Return complete information about the employees.
+
+49*  Write a SQL query to find employees along with their department details. Return employee ID, employee name, job name, manager ID, hire date, salary, commission, department ID, and department name.
+       SELECT emp_id,
+       emp_name,
+       jop_name,
+       manager_id,
+       hire_data,
+       salary,
+       commission,
+       dep_id,
+       dep_name
+FROM employees ,
+     department 
+WHERE dep_id = dep_id;
+
+50* Write a SQL query to identify those employees who earn 60000 or more per year or do not work as ANALYST. Return employee name, job name, (12*salary) as Annual Salary, department ID, and grade.
+SELECT e.emp_name,
+       e.jop_name,
+       (12*e.salary)"Annual Salary",
+       e.dep_id,
+       d.dep_name,
+       s.grade
+FROM employees e,
+     department d,
+     salary_grade s
+WHERE e.dep_id = d.dep_id
+  AND e.salary BETWEEN s.min_sal AND s.max_sal
+  AND (((12*e.salary)>= 60000)
+       OR (e.jop_name != 'ANALYST'))
+
+51*  Write a SQL query to identify employees whose salaries are higher than their managers' salaries. Return employee name, job name, manager ID, salary, manager name, manager's salary
+SELECT emp_name,
+       jop_name,
+       manager_id,
+       salary,
+       emp_name "Manager",
+       emp_id,
+       salary "Manager_Salary"
+FROM employees 
+WHERE manager_id = emp_id
+  AND salary > salary;
+
+52* Write a SQL query to find those employees whose salary is between 2000 and 5000 (Begin and end values are included.) and location is PERTH. Return employee name, department ID, salary, and commission
+
